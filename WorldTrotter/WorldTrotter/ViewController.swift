@@ -20,4 +20,13 @@ class ViewController: UIViewController {
 //        firstView.addSubview(secondView)
 //        view.addSubview(secondView)
     }
+    
+    override func viewWillLayoutSubviews() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.yellow.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
+        gradientLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1)
+        gradientLayer.frame = view.frame
+        let gradientView = UIView()
+        view.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }
