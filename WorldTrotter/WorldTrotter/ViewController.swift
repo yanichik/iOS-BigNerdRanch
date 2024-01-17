@@ -18,5 +18,6 @@ class ViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        gradientLayer.frame.size = view.frame.size
     }
 }
