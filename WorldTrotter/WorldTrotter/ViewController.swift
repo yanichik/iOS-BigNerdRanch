@@ -25,8 +25,7 @@ class ViewController: UIViewController {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.red.cgColor, UIColor.yellow.cgColor, UIColor.green.cgColor, UIColor.blue.cgColor]
         gradientLayer.transform = CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1)
-        gradientLayer.frame = view.frame
-        let gradientView = UIView()
+        gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
