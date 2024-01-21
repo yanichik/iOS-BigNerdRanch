@@ -1,0 +1,30 @@
+# Ignore macOS .DS_Store files
+.DS_Store
+
+# Ignore Xcode build directory
+build/
+
+# Ignore Xcode user-specific files
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+
+# Ignore Xcode project file
+*.xcodeproj
+
+# Ignore Xcode workspace file
+*.xcworkspace
+
+# Ignore xcuserdata folder
+xcuserdata/
+
+# Ignore .xcbkptlist file
+*.xcbkptlist
+
+# Ignore all resources file
+HackingWithSwift-main*
+
+# Ignore starter code for WorldTrotter
+Starters_WorldTrotter*
