@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  QuizViewController.swift
 //  Quiz
 //
 //  Created by YB on 12/13/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class QuizViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
     
