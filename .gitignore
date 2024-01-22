@@ -27,4 +27,7 @@ xcuserdata/
 HackingWithSwift-main*
 
 # Ignore starter code for WorldTrotter
-Starters_WorldTrotter*
+WorldTrotter_Starters*
+
+# Ignore solutions code for WorldTrotter
+WorldTrotter_Solutions*
