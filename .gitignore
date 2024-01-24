@@ -29,3 +29,6 @@ WorldTrotter_Starters*
 
 # Ignore solutions code for WorldTrotter
 WorldTrotter_Solutions*
+
+# Ignore Playground
+MyPlayground.playground
