@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -98,80 +97,15 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="UmZ-wU-jfL"/>
                         <segue destination="Usk-EM-PaF" kind="relationship" relationship="viewControllers" id="rJs-XC-kR9"/>
-                        <segue destination="d3N-e8-f8N" kind="relationship" relationship="viewControllers" id="VV4-Mw-PEa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G15-bf-kZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-913.04347826086962" y="2.6785714285714284"/>
         </scene>
-        <!--Quiz-->
-        <scene sceneID="ErF-CM-7cy">
-            <objects>
-                <viewController id="d3N-e8-f8N" customClass="QuizViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kjr-nN-LpN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-zx-kFB">
-                                <rect key="frame" x="182.66666666666666" y="115" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb1-rd-syj">
-                                <rect key="frame" x="140.66666666666666" y="163" width="132.99999999999997" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Next Question"/>
-                                <connections>
-                                    <action selector="showNextQuestion:" destination="d3N-e8-f8N" eventType="touchUpInside" id="we8-XW-MgR"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdo-tQ-kWc">
-                                <rect key="frame" x="181" y="438" width="52" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noz-J2-QVw">
-                                <rect key="frame" x="143.66666666666666" y="487" width="126.99999999999997" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Answer"/>
-                                <connections>
-                                    <action selector="showAnswer:" destination="d3N-e8-f8N" eventType="touchUpInside" id="GSe-k8-zZK"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="IiX-0f-L8k"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wdo-tQ-kWc" firstAttribute="top" secondItem="zb1-rd-syj" secondAttribute="bottom" constant="240.00000000000921" id="3xM-kf-Sly"/>
-                            <constraint firstItem="noz-J2-QVw" firstAttribute="centerX" secondItem="HWH-zx-kFB" secondAttribute="centerX" id="8ju-eY-5fV"/>
-                            <constraint firstItem="zb1-rd-syj" firstAttribute="top" secondItem="HWH-zx-kFB" secondAttribute="bottom" constant="26.999999999993634" id="9Q2-ur-OUE"/>
-                            <constraint firstItem="HWH-zx-kFB" firstAttribute="centerX" secondItem="Kjr-nN-LpN" secondAttribute="centerX" id="9zT-Dt-mR7"/>
-                            <constraint firstItem="zb1-rd-syj" firstAttribute="centerX" secondItem="HWH-zx-kFB" secondAttribute="centerX" id="CsT-NY-I4U"/>
-                            <constraint firstItem="noz-J2-QVw" firstAttribute="top" secondItem="wdo-tQ-kWc" secondAttribute="bottom" constant="28" id="pcg-Vf-jff"/>
-                            <constraint firstItem="wdo-tQ-kWc" firstAttribute="centerX" secondItem="HWH-zx-kFB" secondAttribute="centerX" id="rUp-it-iWB"/>
-                            <constraint firstItem="HWH-zx-kFB" firstAttribute="top" secondItem="IiX-0f-L8k" secondAttribute="top" constant="70.999999999993406" id="ufN-tu-ERa"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Quiz" image="QuizIcon" id="Dwu-MF-acd"/>
-                    <connections>
-                        <outlet property="answerLabel" destination="wdo-tQ-kWc" id="6sy-xg-0V7"/>
-                        <outlet property="questionLabel" destination="HWH-zx-kFB" id="2hR-uG-7c0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pql-aO-igr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1683" y="3"/>
-        </scene>
     </scenes>
     <resources>
         <image name="ConvertIcon" width="48.333332061767578" height="32.333332061767578"/>
         <image name="MapIcon" width="48.333332061767578" height="32.333332061767578"/>
-        <image name="QuizIcon" width="20" height="20"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

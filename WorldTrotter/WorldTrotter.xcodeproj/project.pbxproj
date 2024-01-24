@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54004E662B5EE92000D4A46C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54004E652B5EE92000D4A46C /* MapViewController.swift */; };
-		54004E682B5EF77300D4A46C /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54004E672B5EF77300D4A46C /* QuizViewController.swift */; };
 		54EC56CD2B50C77500D8EDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC56CC2B50C77500D8EDEB /* AppDelegate.swift */; };
 		54EC56CF2B50C77500D8EDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC56CE2B50C77500D8EDEB /* SceneDelegate.swift */; };
 		54EC56D12B50C77500D8EDEB /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC56D02B50C77500D8EDEB /* ConversionViewController.swift */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		54004E652B5EE92000D4A46C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		54004E672B5EF77300D4A46C /* QuizViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizViewController.swift; path = ../../Quiz/Quiz/QuizViewController.swift; sourceTree = "<group>"; };
 		54EC56C92B50C77500D8EDEB /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EC56CC2B50C77500D8EDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54EC56CE2B50C77500D8EDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		54EC56CB2B50C77500D8EDEB /* WorldTrotter */ = {
 			isa = PBXGroup;
 			children = (
-				54004E672B5EF77300D4A46C /* QuizViewController.swift */,
 				54EC56CC2B50C77500D8EDEB /* AppDelegate.swift */,
 				54EC56CE2B50C77500D8EDEB /* SceneDelegate.swift */,
 				54EC56D02B50C77500D8EDEB /* ConversionViewController.swift */,
@@ -265,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EC56D12B50C77500D8EDEB /* ConversionViewController.swift in Sources */,
-				54004E682B5EF77300D4A46C /* QuizViewController.swift in Sources */,
 				54EC56CD2B50C77500D8EDEB /* AppDelegate.swift in Sources */,
 				54EC56CF2B50C77500D8EDEB /* SceneDelegate.swift in Sources */,
 				54004E662B5EE92000D4A46C /* MapViewController.swift in Sources */,
