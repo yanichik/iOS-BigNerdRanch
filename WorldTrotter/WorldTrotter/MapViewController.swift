@@ -12,12 +12,42 @@ class MapViewController: UIViewController {
     
     var mapView: MKMapView!
     
+    enum MapType: Int{
+        case standard
+        case hybrid
+        case satellite
+        
+        func toMKMapType() -> MKMapType {
+            switch self {
+            case .standard:
+                return .standard
+            case .hybrid:
+                return .hybrid
+            case .satellite:
+                return .satellite
+            }
+        }
+    }
+    
     override func loadView() {
         super.loadView()
         mapView = MKMapView()
         let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
-        segmentedControl.backgroundColor = UIColor.systemBackground
-        segmentedControl.selectedSegmentIndex = 2
+        segmentedControl.backgroundColor = UIColor.secondaryLabel
+        segmentedControl.selectedSegmentIndex = 0
+        if let mapType = MapType(rawValue: segmentedControl.selectedSegmentIndex){
+            mapView.mapType = mapType.toMKMapType()
+        }
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 37.8, longitude: -122.4), animated: true)
+        mapView.isZoomEnabled = true
+        
+        // MKMap Configuration
+        let mapConfig = MKStandardMapConfiguration()
+        let poiFilter = MKPointOfInterestFilter(including: [.airport,.amusementPark, .atm])
+        mapConfig.pointOfInterestFilter = poiFilter
+        
+        mapView.preferredConfiguration = mapConfig
+
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view = mapView
         view.addSubview(segmentedControl)
@@ -39,6 +69,33 @@ class MapViewController: UIViewController {
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
+        // Attaching a target-action pair to the segmented control
+        segmentedControl.addTarget(self, action: #selector(mapTypeChanged(_:)), for: .valueChanged)
+        
+        let poiLabel = UILabel()
+        poiLabel.text = "Points of Interest"
+        poiLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(poiLabel)
+        
+        // Need to add constraint AFTER subView added
+        let leadingPoiConstraint = poiLabel.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
+        let topPoiConstraint = poiLabel.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 15)
+        leadingPoiConstraint.isActive = true
+        topPoiConstraint.isActive = true
+        
+        let poiSwitch = UISwitch()
+        // Need to disable "translatesAutoresizingMaskIntoConstraints" - otherwise INTERFERES with programmatically set constraints
+        poiSwitch.translatesAutoresizingMaskIntoConstraints = false
+        poiSwitch.setOn(true, animated: true)
+        view.addSubview(poiSwitch)
+        let leadingPoiSwitchConstraint = poiSwitch.leadingAnchor.constraint(equalTo: poiLabel.trailingAnchor, constant: 10)
+        let midPoiSwitchConstraint = poiSwitch.centerYAnchor.constraint(equalTo: poiLabel.centerYAnchor)
+        
+        leadingPoiSwitchConstraint.isActive = true
+        midPoiSwitchConstraint.isActive = true
+        
+        // Attaching a target-action pair to the POI Switch
+        poiSwitch.addTarget(self, action: #selector(togglePoiSwitch(_:)), for: .valueChanged)
     }
 
     override func viewDidLoad() {
@@ -57,5 +114,33 @@ class MapViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @objc func mapTypeChanged(_ segmentedControl: UISegmentedControl){
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            if let mapType = MapType(rawValue: 0){
+                mapView.mapType = mapType.toMKMapType()
+            }
+        case 1:
+            if let mapType = MapType(rawValue: 1){
+                mapView.mapType = mapType.toMKMapType()
+            }
+        case 2:
+            if let mapType = MapType(rawValue: 2){
+                mapView.mapType = mapType.toMKMapType()
+            }
+        default:
+            if let mapType = MapType(rawValue: 0){
+                mapView.mapType = mapType.toMKMapType()
+            }
+        }
+    }
+    
+    @objc func togglePoiSwitch(_ poiSwitch: UISwitch){
+        if poiSwitch.isOn{
+            mapView.pointOfInterestFilter = .includingAll
+        } else {
+            mapView.pointOfInterestFilter = .excludingAll
+        }
+    }
 }

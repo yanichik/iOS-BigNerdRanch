@@ -3,4 +3,54 @@
    uuid = "CCC15061-61AD-4B3C-9505-331FA08D9F5B"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C45C86CE-E0E2-41D1-A608-96F466DE4082"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorldTrotter/MapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C45C86CE-E0E2-41D1-A608-96F466DE4082 - 2953d5583ab140b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorldTrotter.MapViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "WorldTrotter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanichik/dev/iosBigNerdRanch/WorldTrotter/WorldTrotter/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "C45C86CE-E0E2-41D1-A608-96F466DE4082 - 2953d5583ab14087"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "WorldTrotter.MapViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "WorldTrotter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yanichik/dev/iosBigNerdRanch/WorldTrotter/WorldTrotter/MapViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
