@@ -30,7 +30,9 @@ class MapViewController: UIViewController {
     }
     
     override func loadView() {
-        super.loadView()
+        // NOT calling super of loadView when setting view fully programmatically. Need to call super
+        // when setting inside IB and customizing programmatically
+        // super.loadView()
         mapView = MKMapView()
         let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
         segmentedControl.backgroundColor = UIColor.secondaryLabel
