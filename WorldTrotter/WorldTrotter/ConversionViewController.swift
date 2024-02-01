@@ -24,6 +24,14 @@ class ConversionViewController: UIViewController {
         }
     }
     
+    let numberFormatter: NumberFormatter = {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.minimumFractionDigits = 0
+        nf.maximumFractionDigits = 1
+        return nf
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCelsiusLabel()
@@ -60,12 +68,18 @@ class ConversionViewController: UIViewController {
     
     func updateCelsiusLabel(){
         if let celsiusValue = celsiusValue{
-            celsiusLabel.text = "\(celsiusValue.value.rounded(to: 2))"
+            // using Double extension
+            // celsiusLabel.text = "\(celsiusValue.value.rounded(to: 2))"
+            
+            // using number formatter
+            celsiusLabel.text = numberFormatter.string(from: NSNumber(value: celsiusValue.value))
         } else {
             celsiusLabel.text = "???"
         }
     }
 }
+
+// MARK: - Double Extension
 extension Double {
     func rounded(to places: Int) -> Double{
         return Double(String(format: "%.\(places)f", self))!
