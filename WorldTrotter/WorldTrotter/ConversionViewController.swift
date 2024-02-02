@@ -89,8 +89,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
                    replacementString string: String) -> Bool {
         let existingStringHasDecimalSeparator = textField.text?.range(of: ".")
         let newStringHasDecimalSeparator = string.range(of: ".")
-        if existingStringHasDecimalSeparator != nil,
-           newStringHasDecimalSeparator != nil {
+        
+        // Bool whether new char is alphabetic using CharacterSet
+        let lettersSet = CharacterSet.letters
+        var newStringHasAlphabeticCharacter: Bool? = false
+        if let stringScalar = string.unicodeScalars.first{
+            newStringHasAlphabeticCharacter = lettersSet.contains(stringScalar)
+        }
+        
+        // logic to determine if to print requested character
+        if ((existingStringHasDecimalSeparator != nil &&
+           newStringHasDecimalSeparator != nil) ||
+            newStringHasAlphabeticCharacter! == true)
+        {
             return false
         } else {
             return true
