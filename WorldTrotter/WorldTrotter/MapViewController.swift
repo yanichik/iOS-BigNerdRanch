@@ -34,7 +34,16 @@ class MapViewController: UIViewController {
         // when setting inside IB and customizing programmatically
         // super.loadView()
         mapView = MKMapView()
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        
+        // Non-Internationalized Version
+        // let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        
+        // Internationalized Version
+        let standardStringInternationalized = NSLocalizedString("Standard", comment: "Displays the standard map.")
+        let hybridStringInternationalized = NSLocalizedString("Hybrid", comment: "Displays the hybrid map.")
+        let satelliteStringInternationalized = NSLocalizedString("Satellite", comment: "Displays the satellite map.")
+        let segmentedControl = UISegmentedControl(items: [standardStringInternationalized, hybridStringInternationalized, satelliteStringInternationalized])
+        
         segmentedControl.backgroundColor = UIColor.secondaryLabel
         segmentedControl.selectedSegmentIndex = 0
         if let mapType = MapType(rawValue: segmentedControl.selectedSegmentIndex){
