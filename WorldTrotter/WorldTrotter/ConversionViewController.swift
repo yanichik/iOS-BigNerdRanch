@@ -25,6 +25,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // NumberFormatter customizes the display of a number
+    // NumberFormatter has a locale property, which is set to the device’s current locale.
+    // Whenever you use a NumberFormatter to create a number, it checks its locale property and sets the format accordingly.
     let numberFormatter: NumberFormatter = {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -61,8 +64,8 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 //        }
         
 //      Version2: update fahrenheitValue which calls the updateCelsiusLabel method
-        if let text = textField.text, let value = Double(text){
-            fahrenheitValue = Measurement(value: value, unit: .fahrenheit)
+        if let text = textField.text, let value = numberFormatter.number(from: text){
+            fahrenheitValue = Measurement(value: value.doubleValue, unit: .fahrenheit)
         } else {
             fahrenheitValue = nil
         }
@@ -87,8 +90,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
-        let existingStringHasDecimalSeparator = textField.text?.range(of: ".")
-        let newStringHasDecimalSeparator = string.range(of: ".")
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
+
+        let existingStringHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+        let newStringHasDecimalSeparator = string.range(of: decimalSeparator)
         
         // Bool whether new char is alphabetic using CharacterSet
         let lettersSet = CharacterSet.letters
