@@ -13,9 +13,16 @@ class ItemsViewController: UITableViewController {
     
     @IBAction func addNewItem(_ sender: UIButton){
         let newItem = itemStore.createItem()
-        if let index = itemStore.allItems.firstIndex(of: newItem){
-            let indexPath = IndexPath(row: index, section: 0)
-            tableView.insertRows(at: [indexPath], with: .automatic)
+        if newItem.valueInDollars > 50 {
+            if let index = itemStore.itemsOverFifty.firstIndex(of: newItem){
+                let indexPath = IndexPath(row: index, section: 1)
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        } else {
+            if let index = itemStore.itemsFiftyAndUnder.firstIndex(of: newItem){
+                let indexPath = IndexPath(row: index, section: 0)
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
         }
     }
     
@@ -41,20 +48,33 @@ class ItemsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "50 AND UNDER"
+        } else {
+            return "OVER 50"
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return itemStore.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return itemStore.allItems.count
+        if itemStore.numberOfSections == 1 {
+            return itemStore.allItems.count
+        } else {
+            if section == 0 {
+                return itemStore.itemsFiftyAndUnder.count
+            } else {
+                return itemStore.itemsOverFifty.count
+            }
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        let item = itemStore.allItems[indexPath.row]
+        let item = indexPath.section == 0 ? itemStore.itemsFiftyAndUnder[indexPath.row] : itemStore.itemsOverFifty[indexPath.row]
         
         cell.textLabel?.text = item.name
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
@@ -73,7 +93,7 @@ class ItemsViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let item = itemStore.allItems[indexPath.row]
+            let item = indexPath.section == 0 ? itemStore.itemsFiftyAndUnder[indexPath.row] : itemStore.itemsOverFifty[indexPath.row]
             itemStore.removeItem(item)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

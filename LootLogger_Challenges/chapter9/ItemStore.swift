@@ -9,10 +9,14 @@ import UIKit
 
 class ItemStore {
     var allItems = [Item]()
+    var itemsOverFifty = [Item]()
+    var itemsFiftyAndUnder = [Item]()
+    var numberOfSections = 2
     
     @discardableResult func createItem() -> Item{
         let randomItem = Item(random: true)
         allItems.append(randomItem)
+        updateItemsLists()
         return randomItem
     }
     
@@ -20,6 +24,7 @@ class ItemStore {
         if let index = allItems.firstIndex(of: item){
             allItems.remove(at: index)
         }
+        updateItemsLists()
     }
     
     func moveItem(from fromIndex: Int, to toIndex: Int){
@@ -29,14 +34,22 @@ class ItemStore {
         let movedItem = allItems[fromIndex]
         allItems.remove(at: fromIndex)
         allItems.insert(movedItem, at: toIndex)
+        updateItemsLists()
     }
     
-//    init() {
-//        // This is why you annotated createItem() with @discardableResult. If you had not, then the call to
-//        // that function would have needed to look like where you call the function, but ignore the result:
-//            // let _ = createItem()
-//        for _ in 0..<5{
-//            createItem()
-//        }
-//    }
+    func updateNumberSections(){
+        let hasOverFifty = allItems.contains {$0.valueInDollars > 50}
+        if hasOverFifty {
+            numberOfSections = 2
+            updateItemsLists()
+        } else {
+            numberOfSections = 1
+            updateItemsLists()
+        }
+    }
+    
+    func updateItemsLists(){
+        itemsOverFifty = allItems.filter {$0.valueInDollars > 50}
+        itemsFiftyAndUnder = allItems.filter {$0.valueInDollars <= 50}
+    }
 }
