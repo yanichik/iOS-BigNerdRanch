@@ -14,22 +14,27 @@ class ItemsViewController: UITableViewController {
 
     @IBAction func addNewItem(_ sender: UIButton){
         let newItem = itemStore.createItem()
-        sections = 2
-//        if tableView.numberOfSections < 2 {
-//            tableView.insertSections(IndexSet(integer: 1), with: .automatic)
-//        }
-        if newItem.valueInDollars > 50 {
-            if let index = itemStore.itemsOverFifty.firstIndex(of: newItem){
-                let indexPath = IndexPath(row: index, section: 1)
-//                tableView.reloadData()
-                
-                tableView.insertRows(at: [indexPath], with: .automatic)
-            }
+        if (sections == 1) {
+            // Tell the table about the new section and reload the first
+            tableView.beginUpdates()
+            sections = 2
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            tableView.insertSections(IndexSet(integer: 1), with: .fade)
+            tableView.endUpdates()
         } else {
-            if let index = itemStore.itemsFiftyAndUnder.firstIndex(of: newItem){
-                let indexPath = IndexPath(row: index, section: 0)
-//                tableView.reloadData()
-                tableView.insertRows(at: [indexPath], with: .automatic)
+            if newItem.valueInDollars > 50 {
+                if let index = itemStore.itemsOverFifty.firstIndex(of: newItem){
+                    let indexPath = IndexPath(row: index, section: 1)
+                    //                tableView.reloadData()
+                    
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
+            } else {
+                if let index = itemStore.itemsFiftyAndUnder.firstIndex(of: newItem){
+                    let indexPath = IndexPath(row: index, section: 0)
+                    //                tableView.reloadData()
+                    tableView.insertRows(at: [indexPath], with: .automatic)
+                }
             }
         }
     }
@@ -46,7 +51,7 @@ class ItemsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -111,6 +116,13 @@ class ItemsViewController: UITableViewController {
             let item = indexPath.section == 0 ? itemStore.itemsFiftyAndUnder[indexPath.row] : itemStore.itemsOverFifty[indexPath.row]
             itemStore.removeItem(item)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        if itemStore.allItems.isEmpty {
+            tableView.beginUpdates()
+            sections = 1
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            tableView.deleteSections(IndexSet(integer: 1), with: .fade)
+            tableView.endUpdates()
         }
     }
 
