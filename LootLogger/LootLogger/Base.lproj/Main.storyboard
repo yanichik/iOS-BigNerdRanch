@@ -51,29 +51,47 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="hMB-SW-F8p" detailTextLabel="lyG-Zh-NWW" style="IBUITableViewCellStyleValue1" id="324-Hh-Pyn">
-                                <rect key="frame" x="0.0" y="110" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="40" id="324-Hh-Pyn" customClass="ItemCell" customModule="LootLogger" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="110" width="393" height="40"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="324-Hh-Pyn" id="cON-a9-SCs">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hMB-SW-F8p">
-                                            <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brh-kW-8zK">
+                                            <rect key="frame" x="20" y="11" width="42" height="10"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lyG-Zh-NWW">
-                                            <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-fF-k5X">
+                                            <rect key="frame" x="20" y="29" width="31" height="0.0"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAe-JN-h0q">
+                                            <rect key="frame" x="331" y="9.6666666666666643" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qAe-JN-h0q" secondAttribute="trailing" constant="20" symbolic="YES" id="38L-i9-59V"/>
+                                        <constraint firstItem="Brh-kW-8zK" firstAttribute="top" secondItem="cON-a9-SCs" secondAttribute="topMargin" id="6oW-S6-c8b"/>
+                                        <constraint firstItem="Brh-kW-8zK" firstAttribute="leading" secondItem="cON-a9-SCs" secondAttribute="leadingMargin" id="AhR-ES-pso"/>
+                                        <constraint firstItem="EJC-fF-k5X" firstAttribute="top" secondItem="Brh-kW-8zK" secondAttribute="bottom" constant="8" symbolic="YES" id="UNw-aU-zgk"/>
+                                        <constraint firstItem="EJC-fF-k5X" firstAttribute="leading" secondItem="Brh-kW-8zK" secondAttribute="leading" id="Xf9-lp-Ipj"/>
+                                        <constraint firstItem="EJC-fF-k5X" firstAttribute="bottom" secondItem="cON-a9-SCs" secondAttribute="bottomMargin" id="dKa-Kp-wfb"/>
+                                        <constraint firstItem="qAe-JN-h0q" firstAttribute="centerY" secondItem="cON-a9-SCs" secondAttribute="centerY" id="hTE-MH-wg3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Brh-kW-8zK" id="ndi-K8-cSB"/>
+                                    <outlet property="serialNumberLabel" destination="EJC-fF-k5X" id="pET-kt-2ew"/>
+                                    <outlet property="valueLabel" destination="qAe-JN-h0q" id="gcO-tp-AYI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -88,6 +106,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
