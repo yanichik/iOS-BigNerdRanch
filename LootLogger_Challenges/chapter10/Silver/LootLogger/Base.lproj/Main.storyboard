@@ -65,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-fF-k5X">
-                                            <rect key="frame" x="20" y="39.333333333333336" width="31" height="14.666666666666664"/>
+                                            <rect key="frame" x="20.000000000000004" y="39.333333333333336" width="41.333333333333343" height="14.666666666666664"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                             <nil key="highlightedColor"/>
@@ -80,6 +80,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="qAe-JN-h0q" secondAttribute="trailing" constant="20" symbolic="YES" id="38L-i9-59V"/>
                                         <constraint firstItem="Brh-kW-8zK" firstAttribute="top" secondItem="cON-a9-SCs" secondAttribute="topMargin" id="6oW-S6-c8b"/>
+                                        <constraint firstItem="EJC-fF-k5X" firstAttribute="trailing" secondItem="Brh-kW-8zK" secondAttribute="trailing" id="A3a-1l-94r"/>
                                         <constraint firstItem="Brh-kW-8zK" firstAttribute="leading" secondItem="cON-a9-SCs" secondAttribute="leadingMargin" id="AhR-ES-pso"/>
                                         <constraint firstItem="EJC-fF-k5X" firstAttribute="top" secondItem="Brh-kW-8zK" secondAttribute="bottom" constant="8" symbolic="YES" id="UNw-aU-zgk"/>
                                         <constraint firstItem="EJC-fF-k5X" firstAttribute="leading" secondItem="Brh-kW-8zK" secondAttribute="leading" id="Xf9-lp-Ipj"/>
