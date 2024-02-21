@@ -10,6 +10,22 @@ import UIKit
 class DetailViewController: UIViewController {
     var item: Item!
     
+    var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = 2
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    var dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter
+    }()
+    
     @IBOutlet var nameField: UITextField!
     @IBOutlet var serialNumberField: UITextField!
     @IBOutlet var valueField: UITextField!
@@ -20,8 +36,8 @@ class DetailViewController: UIViewController {
         
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
-        valueField.text = "$\(item.valueInDollars)"
-        dateLabel.text = "\(item.dateCreated)"
+        valueField.text = numberFormatter.string(for: item.valueInDollars)
+        dateLabel.text = dateFormatter.string(from: item.dateCreated)
         
     }
 }
