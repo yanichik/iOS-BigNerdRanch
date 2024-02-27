@@ -11,7 +11,7 @@ class ItemsViewController: UITableViewController {
     // add ItemStore property to have access to store that holds all items
     var itemStore: ItemStore!
     
-    @IBAction func addNewItem(_ sender: UIButton){
+    @IBAction func addNewItem(_ sender: UIBarButtonItem){
         let newItem = itemStore.createItem()
         if let index = itemStore.allItems.firstIndex(of: newItem){
             let indexPath = IndexPath(row: index, section: 0)
@@ -19,19 +19,23 @@ class ItemsViewController: UITableViewController {
         }
     }
     
-    @IBAction func toggleEditingMode(_ sender: UIButton){
-        if isEditing{
-            sender.setTitle("Edit", for: .normal)
-            setEditing(false, animated: true)
-        } else {
-            sender.setTitle("Done", for: .normal)
-            setEditing(true, animated: true)
-        }
+//    @IBAction func toggleEditingMode(_ sender: UIButton){
+//        if isEditing{
+//            sender.setTitle("Edit", for: .normal)
+//            setEditing(false, animated: true)
+//        } else {
+//            sender.setTitle("Done", for: .normal)
+//            setEditing(true, animated: true)
+//        }
+//    }
+    
+    required init?(coder aCoder: NSCoder) {
+        super.init(coder: aCoder)
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 65
 
@@ -40,6 +44,11 @@ class ItemsViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

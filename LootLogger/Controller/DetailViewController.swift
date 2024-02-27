@@ -7,8 +7,12 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-    var item: Item!
+class DetailViewController: UIViewController, UITextFieldDelegate {
+    var item: Item! {
+        didSet {
+            navigationItem.title = item.name
+        }
+    }
     
     var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -31,6 +35,10 @@ class DetailViewController: UIViewController {
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -39,5 +47,33 @@ class DetailViewController: UIViewController {
         valueField.text = numberFormatter.string(for: item.valueInDollars)
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
         
+        // Set field delegate programmatically - currently set in storyboard
+        // nameField.delegate = self
+        // serialNumberField.delegate = self
+        // valueField.delegate = self
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Clear first responder
+        view.endEditing(true)
+        
+        item.name = nameField.text ?? ""
+        item.serialNumber = serialNumberField.text ?? ""
+        if let valueText = valueField.text,
+           let value = numberFormatter.number(from: valueText) {
+            item.valueInDollars = value.intValue
+        }
+        else {
+            item.valueInDollars = 0
+        }
+    }
+    
+    // Dismiss keyboard upon pressing Return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
