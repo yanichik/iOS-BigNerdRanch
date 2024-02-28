@@ -18,7 +18,7 @@ class Item: Equatable {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
-    let dateCreated: Date
+    var dateCreated: Date
     
     init(name: String, valueInDollars: Int, serialNumber: String?) {
         self.name = name
