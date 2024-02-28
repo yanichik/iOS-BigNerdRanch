@@ -83,15 +83,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     }
     
     func changeDateButton(){
-        print("changed date")
-        guard let changeDateViewController = UIViewController() as? EditDateViewController else { return }
-        changeDateViewController.view.backgroundColor = UIColor.white
-        changeDateViewController.title = "Change Date"
-        changeDateViewController.navigationItem.backButtonTitle = "Back to Item"
+        print("change date pressed")
         let datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .date
+
+        let changeDateViewController = EditDateViewController(datePicker: datePicker, item: self.item)
+        changeDateViewController.view.backgroundColor = UIColor.white
+        changeDateViewController.title = "Change Date"
+        changeDateViewController.navigationItem.backButtonTitle = "Back to Item"
         changeDateViewController.view.addSubview(datePicker)
+
         datePicker.topAnchor.constraint(equalTo: changeDateViewController.view.topAnchor).isActive = true
         datePicker.bottomAnchor.constraint(equalTo: changeDateViewController.view.bottomAnchor).isActive = true
         datePicker.centerXAnchor.constraint(equalTo: changeDateViewController.view.centerXAnchor).isActive = true
