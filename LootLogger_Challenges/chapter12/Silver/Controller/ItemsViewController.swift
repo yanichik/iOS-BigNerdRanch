@@ -58,6 +58,7 @@ class ItemsViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                navigationItem.backButtonTitle = "Log"
             }
         default:
             preconditionFailure("Unexpected segue identifier.")
