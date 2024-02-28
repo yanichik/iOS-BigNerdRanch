@@ -47,10 +47,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         valueField.text = numberFormatter.string(for: item.valueInDollars)
         dateLabel.text = dateFormatter.string(from: item.dateCreated)
         
-        // Set field delegate programmatically - currently set in storyboard
-        // nameField.delegate = self
-        // serialNumberField.delegate = self
-        // valueField.delegate = self
+        let changeDateButton = UIButton(primaryAction: UIAction(title: "Change Date") {_ in
+            self.changeDateButton()
+        })
+        changeDateButton.translatesAutoresizingMaskIntoConstraints = false
+        let centerConstraint = changeDateButton.centerXAnchor.constraint(equalTo: dateLabel.centerXAnchor)
+        let topConstraint = changeDateButton.topAnchor.constraint(equalTo: dateLabel.centerYAnchor, constant: 15)
+        view.addSubview(changeDateButton)
+        centerConstraint.isActive = true
+        topConstraint.isActive = true
         
     }
     
@@ -76,4 +81,23 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func changeDateButton(){
+        print("changed date")
+        guard let changeDateViewController = UIViewController() as? EditDateViewController else { return }
+        changeDateViewController.view.backgroundColor = UIColor.white
+        changeDateViewController.title = "Change Date"
+        changeDateViewController.navigationItem.backButtonTitle = "Back to Item"
+        let datePicker = UIDatePicker()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.datePickerMode = .date
+        changeDateViewController.view.addSubview(datePicker)
+        datePicker.topAnchor.constraint(equalTo: changeDateViewController.view.topAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: changeDateViewController.view.bottomAnchor).isActive = true
+        datePicker.centerXAnchor.constraint(equalTo: changeDateViewController.view.centerXAnchor).isActive = true
+        navigationController?.pushViewController(changeDateViewController, animated: false)
+    }
+    
+    
+
 }

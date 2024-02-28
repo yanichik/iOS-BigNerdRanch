@@ -83,7 +83,7 @@
         <!--Detail View Controller-->
         <scene sceneID="Rl2-v3-23n">
             <objects>
-                <viewController id="e4q-CI-Qvy" customClass="DetailViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="e4q-CI-Qvy" customClass="DetailViewController" customModule="LootLogger" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XXp-Bi-jK9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9BN-VY-mUm">
+                                    <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="3" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9BN-VY-mUm">
                                         <rect key="frame" x="0.0" y="126" width="377" height="573"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7K-ZP-WIE">
