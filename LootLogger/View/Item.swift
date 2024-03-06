@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Item: Equatable {
+class Item: Equatable, Codable {
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.name == rhs.name &&
             lhs.dateCreated == rhs.dateCreated &&
