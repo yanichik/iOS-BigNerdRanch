@@ -89,7 +89,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ein-u5-Tqk">
-                                <rect key="frame" x="8" y="111" width="377" height="699"/>
+                                <rect key="frame" x="8" y="111" width="377" height="650"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nYy-yC-H66">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="34"/>
@@ -149,10 +149,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9BN-VY-mUm">
-                                        <rect key="frame" x="0.0" y="126" width="377" height="573"/>
+                                        <rect key="frame" x="0.0" y="126" width="377" height="524"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7K-ZP-WIE">
-                                                <rect key="frame" x="0.0" y="0.0" width="377" height="573"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="524"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -165,15 +165,28 @@
                                     <constraint firstItem="EaN-Qm-1HV" firstAttribute="leading" secondItem="iTL-Nk-Ibp" secondAttribute="leading" id="rzt-dl-MdI"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFT-mp-dPZ">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="kmF-JG-B9H">
+                                        <connections>
+                                            <action selector="choosePhotoSource:" destination="e4q-CI-Qvy" id="6Bi-gy-VE0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8ee-2L-EDR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ein-u5-Tqk" firstAttribute="leading" secondItem="8ee-2L-EDR" secondAttribute="leading" constant="8" id="3oU-A4-kKd"/>
+                            <constraint firstItem="zFT-mp-dPZ" firstAttribute="top" secondItem="Ein-u5-Tqk" secondAttribute="bottom" constant="8" id="583-Gh-amN"/>
                             <constraint firstItem="Ein-u5-Tqk" firstAttribute="top" secondItem="8ee-2L-EDR" secondAttribute="top" constant="8" id="5aK-S1-DCU"/>
                             <constraint firstItem="8ee-2L-EDR" firstAttribute="trailing" secondItem="Ein-u5-Tqk" secondAttribute="trailing" constant="8" id="DfU-qC-D9e"/>
-                            <constraint firstItem="8ee-2L-EDR" firstAttribute="bottom" secondItem="Ein-u5-Tqk" secondAttribute="bottom" constant="8" id="eeR-q5-jMN"/>
+                            <constraint firstAttribute="trailing" secondItem="zFT-mp-dPZ" secondAttribute="trailing" id="aLC-Yj-KVc"/>
+                            <constraint firstItem="8ee-2L-EDR" firstAttribute="bottom" secondItem="zFT-mp-dPZ" secondAttribute="bottom" id="b5Q-sO-t97"/>
+                            <constraint firstItem="zFT-mp-dPZ" firstAttribute="leading" secondItem="XXp-Bi-jK9" secondAttribute="leading" id="rf5-Ql-SIy"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="yhY-xR-a6r" appends="YES" id="Yde-id-zKq"/>
