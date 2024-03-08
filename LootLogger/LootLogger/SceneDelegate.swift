@@ -18,13 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        // instantiate ItemStore inside scene(_:willConnectTo:options) b/c this is first method called when application launches
+        // instantiate ImageStore & ItemStore inside scene(_:willConnectTo:options) b/c this is first method called when application launches
+        let imageStore = ImageStore()
         let itemStore = ItemStore()
+        
         
         // get rootViewController from window - which is now the NavigationController b/c it is set as the "initial" VC in the storyboard after we embedded the ItemsViewController inside a nav controller. Then get the items controller from the topViewController and then set the VC's itemStore as the itemStore created above
         let navController = window!.rootViewController as! UINavigationController
         let itemsController = navController.topViewController as! ItemsViewController
         itemsController.itemStore = itemStore
+        itemsController.imageStore = imageStore
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

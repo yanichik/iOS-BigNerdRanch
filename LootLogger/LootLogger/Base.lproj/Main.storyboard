@@ -149,16 +149,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9BN-VY-mUm">
-                                        <rect key="frame" x="0.0" y="126" width="377" height="524"/>
+                                        <rect key="frame" x="0.0" y="125.99999999999999" width="377" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Date Created" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7K-ZP-WIE">
-                                                <rect key="frame" x="0.0" y="0.0" width="377" height="524"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="BON-aN-yp3">
+                                        <rect key="frame" x="0.0" y="154.33333333333329" width="377" height="495.66666666666674"/>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="waQ-58-Vbk" firstAttribute="leading" secondItem="EaN-Qm-1HV" secondAttribute="leading" id="Wc8-5F-A9C"/>
@@ -195,6 +198,7 @@
                     <navigationItem key="navigationItem" id="nez-X1-hqE"/>
                     <connections>
                         <outlet property="dateLabel" destination="e7K-ZP-WIE" id="9rI-RQ-zoC"/>
+                        <outlet property="imageView" destination="BON-aN-yp3" id="hLX-Tt-fTk"/>
                         <outlet property="nameField" destination="hiy-vi-gt2" id="Df6-Mo-WTl"/>
                         <outlet property="serialNumberField" destination="S1m-NJ-uQ8" id="sOb-Tf-RMq"/>
                         <outlet property="valueField" destination="oIq-2h-V0u" id="QaT-CB-1TV"/>
